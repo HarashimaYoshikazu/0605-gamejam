@@ -8,7 +8,8 @@ public class GameManager
     static public GameManager Instance => _instance;
     private GameManager() { }
 
-    int _gold = 10;
+    int _initGold = 10;
+    int _gold = 0;
 
     /// <summary>
     /// ‚¨‹à‚Ì’l‚ğ•Ï‰»‚·‚éŠÖ”
@@ -17,9 +18,15 @@ public class GameManager
     public void ChangeGold(int value)
     {
         _gold += value;
+        UIManager.Instance.SetGoldText(_gold);
         if(_gold<0)
         {
-
+            LifeCycle.Instance.ChangeState();
         }
+    }
+
+    public void ResetGold()
+    {
+        _gold = _initGold;
     }
 }

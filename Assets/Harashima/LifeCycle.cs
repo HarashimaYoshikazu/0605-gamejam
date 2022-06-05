@@ -6,6 +6,10 @@ using GameState;
 
 public class LifeCycle : MonoBehaviour
 {
+    //雑にSingleton（非推奨）
+    static private LifeCycle _instance;
+    static public LifeCycle Instance => _instance;
+
     private GameState.GameState _prevState;
 
     //ステート
@@ -16,17 +20,28 @@ public class LifeCycle : MonoBehaviour
 
     /// <summary>タイマー変数</summary>
     float _timer = 0f;
-    [SerializeField,Tooltip("制限時間")]
+    [SerializeField, Tooltip("制限時間")]
     float _timeUp = 60f;
 
+    private void Awake()
+    {
+        _instance = this;
+    }
     void Start()
     {
         //ステートの初期化
         StateProcessor.StateReactiveProperty.Value = StateStart;
-        StateStart.EnterAction += StartDebug;
-        StateInGame.EnterAction += InGameDebug;
-        StateResult.EnterAction += ResultDebug;
+        StateStart.EnterAction += StartSetUp;
+        StateStart.EnterAction += GameManager.Instance.ResetGold;
+        StateStart.ExitAction += StartExit;
+
+        StateInGame.EnterAction += InGameSetUp;
         StateInGame.UpdateAction += Timer;
+        StateInGame.ExitAction += InGameExit;
+
+        StateResult.EnterAction += ResultSetUp;
+        StateResult.ExitAction += ResultExit;
+        
 
         //ステートの値が変更されたら実行処理を行うようにする
         StateProcessor.StateReactiveProperty
@@ -34,11 +49,11 @@ public class LifeCycle : MonoBehaviour
             .Subscribe(_ =>
             {
                 Debug.Log("Now State:" + StateProcessor.StateReactiveProperty.Value.GetState());
-                if(_prevState != null)
+                if (_prevState != null)
                 {
                     _prevState.OnExit();
                 }
-                
+
                 _prevState = StateProcessor.StateReactiveProperty.Value.GetState();
                 StateProcessor.Enter();
             })
@@ -60,19 +75,44 @@ public class LifeCycle : MonoBehaviour
         }
     }
 
-    public void StartDebug()
+    [SerializeField]
+    GameObject _startPanel = null;
+    [SerializeField]
+    GameObject _inGameUI = null;
+    [SerializeField]
+    GameObject _resultPanel = null;
+
+    void StartSetUp()
     {
         Debug.Log("StateがStartに状態遷移しました。");
+        _startPanel?.SetActive(true);
     }
 
-    public void InGameDebug()
+    void InGameSetUp()
     {
         Debug.Log("StateがInGameに状態遷移しました。");
+        _inGameUI?.SetActive(true);
     }
 
-    public void ResultDebug()
+    void ResultSetUp()
     {
         Debug.Log("StateがResultに状態遷移しました。");
+        _resultPanel?.SetActive(true);
+    }
+
+    void StartExit()
+    {
+        _startPanel?.SetActive(false);
+    }
+
+    void InGameExit()
+    {
+        _inGameUI?.SetActive(false);
+    }
+
+    void ResultExit()
+    {
+        _resultPanel?.SetActive(false);
     }
     public void ChangeState()
     {
