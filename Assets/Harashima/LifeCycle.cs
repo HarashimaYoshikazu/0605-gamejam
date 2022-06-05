@@ -71,6 +71,7 @@ public class LifeCycle : MonoBehaviour
         Debug.Log($"Œ»Ý‚ÌŽžŠÔ{_timer}");
         if (_timer > _timeUp)
         {
+            _timer = 0f;
             ChangeState();
         }
     }

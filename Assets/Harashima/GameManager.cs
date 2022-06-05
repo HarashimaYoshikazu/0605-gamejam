@@ -17,8 +17,9 @@ public class GameManager
     /// <param name="value">³‚Ì’l‚Å‘«‚³‚êA•‰‚Ì’l‚ÅŒ¸‚é</param>
     public void ChangeGold(int value)
     {
+        UIManager.Instance.SetGoldText(_gold,_gold+ value);
         _gold += value;
-        UIManager.Instance.SetGoldText(_gold);
+        
         if(_gold<0)
         {
             LifeCycle.Instance.ChangeState();
@@ -27,6 +28,8 @@ public class GameManager
 
     public void ResetGold()
     {
+        UIManager.Instance.SetGoldText(_gold,_initGold);
         _gold = _initGold;
+        
     }
 }
