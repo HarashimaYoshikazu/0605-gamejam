@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/takahashi/test.unity
+    guid: c693b431795fbc940b70114045f621f5
+  - enabled: 1
+    path: Assets/takahashi/takahasi.unity
+    guid: 291e8bbfc78525342b6172ddd57f5b37
+  - enabled: 1
+    path: Assets/takahashi/test2.unity
+    guid: 6eb1792d6842ae843afec79681dea636
   m_configObjects: {}
