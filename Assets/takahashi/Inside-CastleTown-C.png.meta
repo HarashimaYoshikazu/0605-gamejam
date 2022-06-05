@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -5368,7 +5368,6 @@ TextureImporter:
       Inside-CastleTown-C_132: -523232423
       Inside-CastleTown-C_57: -1508915187
       Inside-CastleTown-C_72: -1406265468
-      Inside-CastleTown-C_209: -1905745182
       Inside-CastleTown-C_170: -1940377267
       Inside-CastleTown-C_175: 352111156
       Inside-CastleTown-C_30: 357532139
@@ -5404,8 +5403,8 @@ TextureImporter:
       Inside-CastleTown-C_188: 338209060
       Inside-CastleTown-C_135: 1547183231
       Inside-CastleTown-C_14: -1224449833
-      Inside-CastleTown-C_161: -1806973125
       Inside-CastleTown-C_216: 605901919
+      Inside-CastleTown-C_161: -1806973125
       Inside-CastleTown-C_76: -1047641654
       Inside-CastleTown-C_4: -1041379545
       Inside-CastleTown-C_35: -631712763
@@ -5495,20 +5494,20 @@ TextureImporter:
       Inside-CastleTown-C_136: -2057829766
       Inside-CastleTown-C_221: -684792053
       Inside-CastleTown-C_44: -722913059
+      Inside-CastleTown-C_128: 121359662
       Inside-CastleTown-C_112: 395740877
       Inside-CastleTown-C_78: -747575160
       Inside-CastleTown-C_86: -23644475
-      Inside-CastleTown-C_128: 121359662
+      Inside-CastleTown-C_214: -1922497533
       Inside-CastleTown-C_36: 935608714
       Inside-CastleTown-C_191: 1516066255
+      Inside-CastleTown-C_238: -2028919860
       Inside-CastleTown-C_207: -200875900
-      Inside-CastleTown-C_214: -1922497533
       Inside-CastleTown-C_56: -141110289
       Inside-CastleTown-C_237: 1680057518
       Inside-CastleTown-C_241: -1389125755
       Inside-CastleTown-C_189: -644799800
       Inside-CastleTown-C_192: 493447251
-      Inside-CastleTown-C_238: -2028919860
       Inside-CastleTown-C_95: -977389892
       Inside-CastleTown-C_106: -223118439
       Inside-CastleTown-C_88: -1617607254
@@ -5609,10 +5608,11 @@ TextureImporter:
       Inside-CastleTown-C_215: -903537370
       Inside-CastleTown-C_244: 245993853
       Inside-CastleTown-C_97: 468225962
+      Inside-CastleTown-C_209: -1905745182
       Inside-CastleTown-C_67: 1083284446
       Inside-CastleTown-C_190: -1519711643
-      Inside-CastleTown-C_196: -580365683
       Inside-CastleTown-C_129: -49146002
+      Inside-CastleTown-C_196: -580365683
       Inside-CastleTown-C_147: 589721053
   spritePackingTag: 
   pSDRemoveMatte: 0
