@@ -10,8 +10,8 @@ public class Baccarat2 : MonoBehaviour
     public List<Texture> img_list = new List<Texture>();
     public void Start()
     {
-        Card2 = GameObject.Find("CardImage2").GetComponent<RawImage>();
-        //1`10‚Ì‰æ‘œ‚ğ“Ç‚İ‚Ş
+        Card2.enabled = false;
+        Card2 = GameObject.Find("CardImage2").GetComponent<RawImage>();    
         Read_img(0);
     }
     public void Read_img(int n)
@@ -26,7 +26,7 @@ public class Baccarat2 : MonoBehaviour
 
     public void ChangeImage()
     {
-        //‚P`•\¦‚·‚é‰æ‘œ‚Ì”‚ğƒ‰ƒ“ƒ_ƒ€‚ÅZo
+        Card2.enabled = true;
         int random = Random.Range(1, img_list.Count);
         Card2.texture = img_list[random];
 
