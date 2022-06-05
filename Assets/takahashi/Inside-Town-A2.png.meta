@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -4163,8 +4163,8 @@ TextureImporter:
       Inside-Town-A2_91: 1164451858
       Inside-Town-A2_123: -2069501386
       Inside-Town-A2_18: 681502525
-      Inside-Town-A2_59: 706566304
       Inside-Town-A2_96: 1026964366
+      Inside-Town-A2_59: 706566304
       Inside-Town-A2_29: -577660835
       Inside-Town-A2_66: 431066200
       Inside-Town-A2_0: -1247746406
