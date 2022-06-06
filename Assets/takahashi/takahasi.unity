@@ -1081,7 +1081,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -42
   m_TargetDisplay: 0
 --- !u!224 &556224279
 RectTransform:
@@ -14098,7 +14098,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: end
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1332215095559266319, guid: c84fd876323edc448ae35df6c65dafea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c84fd876323edc448ae35df6c65dafea, type: 3}
 --- !u!1 &1399679243 stripped
 GameObject:
@@ -14209,7 +14210,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5906143997335361695, guid: 6fde6bd9c6e25774387fd7a4387964a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fde6bd9c6e25774387fd7a4387964a5, type: 3}
 --- !u!1 &1453274101 stripped
 GameObject:
@@ -14862,7 +14864,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69d7bfebb1549414e8f3ff82a827770b, type: 3}
   - {fileID: 8300000, guid: 6f2369fec7741ba46b374eee613aee85, type: 3}
   _text: {fileID: 2090635438}
-  _timetext: {fileID: 2040301576}
   _startPanel: {fileID: 976577275}
   _inGameUI: {fileID: 1453274101}
   _resultPanel: {fileID: 1399679243}

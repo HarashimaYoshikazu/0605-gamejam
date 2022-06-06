@@ -76,6 +76,7 @@ public class UpDownButton : MonoBehaviour
                 Down.enabled = false;
             });
         }
+        ButtonSetActiveFalse();
         Inside.enabled = false;
     }
 
@@ -132,8 +133,13 @@ public class UpDownButton : MonoBehaviour
                 Down.enabled = false;
             });
         }
+        ButtonSetActiveFalse();
         Inside.enabled = false;        
     }
 
-
+    void ButtonSetActiveFalse()
+    {
+        Up.gameObject.SetActive(false);
+        Down.gameObject.SetActive(false);
+    }
 }
