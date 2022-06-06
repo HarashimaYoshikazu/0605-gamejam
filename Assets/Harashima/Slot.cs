@@ -9,54 +9,56 @@ public class Slot : MonoBehaviour
     [SerializeField]
     Sprite[] _slotImageArray;
 
+    Sprite[] _array1;
+    Sprite[] _array2;
+    Sprite[] _array3;
+
     [SerializeField]
     Image[] _slotColumm = new Image[3];
 
     [SerializeField]
     int _rollValue = 10;
+    float _timer = 0f;
 
+    int[] _stacks = new int[3] {0,0,0};
 
     void Start()
     {
-        for (int i = 0; i < _slotColumm.Length; i++)
+        _array1 = new Sprite[_slotImageArray.Length];
+        for (int f = 0; f < _slotImageArray.Length; f++)
         {
-            StartCoroutine(RollSlot(i));
+            if (f == _slotImageArray.Length - 1)
+            {
+                _array1[f] = _slotImageArray[0];
+            }
+            else
+            {
+                _array1[f] = _slotImageArray[f + 1];
+            }
+
         }
+        _array2 = new Sprite[_slotImageArray.Length];
+        for (int h = 0; h < _slotImageArray.Length; h++)
+        {
+            if (h == _slotImageArray.Length - 2)
+            {
+                _array2[h] = _slotImageArray[0];
+            }
+            else if (h == _slotImageArray.Length - 1)
+            {
+                _array2[h] = _slotImageArray[1];
+            }
+            else
+            {
+                _array2[h] = _slotImageArray[h + 2];
+            }
+
+        }
+        _array3 = _slotImageArray;
     }
 
     private void Update()
     {
-    }
-    IEnumerator RollSlot(int index)
-    {
-        int num = 0;
-        while(true)
-        {
-            num++;
-
-            yield return new WaitForSeconds(0.5f);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                break;
-            }
-            _slotColumm[index].sprite =_slotImageArray[num%_slotImageArray.Length] ;
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                break;
-            }
-        }
-
-
-        yield return null;
-    }
-
-    bool IsSpace()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            return true;
-
-        }
-        return false;
+        
     }
 }
