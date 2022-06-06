@@ -8,10 +8,8 @@ public class UpDownButton : MonoBehaviour
     public RawImage Card1;
     public RawImage Card2;
     public Image Inside;
-
-    private AudioSource audioSE;
     public AudioClip sound02;
-
+    private AudioSource audioSE;
     public void Start()
     {
         audioSE = gameObject.AddComponent<AudioSource>();
@@ -19,20 +17,49 @@ public class UpDownButton : MonoBehaviour
     public void OnUpButton()
     {
         audioSE.PlayOneShot(sound02);
-        var tex = Card1.texture;
-        var tex2 = Card2.texture;
-        Debug.Log("テクスチャは" + tex);
-        Debug.Log("2のテクスチャは" + tex2);
+        Debug.Log("カード1は" + NumberManager.Instance.currentCard);
+        Debug.Log("カード2は" + NumberManager.Instance.nextCard);
+
+        if (NumberManager.Instance.currentCard > NumberManager.Instance.nextCard)
+        {
+            Debug.Log("WIN");
+            GameManager.Instance.ChangeGold(20);
+        }
+        else if (NumberManager.Instance.currentCard == NumberManager.Instance.nextCard)
+        {
+            Debug.Log("DRAW");
+            GameManager.Instance.ChangeGold(10);
+        }
+        else
+        {
+            Debug.Log("LOSE");
+            GameManager.Instance.ChangeGold(0);
+        }
         Inside.enabled = false;
     }
 
     public void OnDownButton()
-    {
+    { 
         audioSE.PlayOneShot(sound02);
-        var tex = Card1.texture;
-        var tex2 = Card2.texture;
-        Debug.Log("テクスチャは" + tex);
-        Debug.Log("2のテクスチャは" + tex2);
+        Debug.Log("カード1は" + NumberManager.Instance.currentCard);
+        Debug.Log("カード2は" + NumberManager.Instance.nextCard);
+        if(NumberManager.Instance.currentCard < NumberManager.Instance.nextCard)
+        {
+            Debug.Log("WIN");
+            GameManager.Instance.ChangeGold(20);
+        }
+        else if(NumberManager.Instance.currentCard == NumberManager.Instance.nextCard)
+        {
+            Debug.Log("DRAW");
+            GameManager.Instance.ChangeGold(10);
+        }
+        else
+        {
+            Debug.Log("LOSE");
+            GameManager.Instance.ChangeGold(0);
+        }
         Inside.enabled = false;
     }
+
+
 }
