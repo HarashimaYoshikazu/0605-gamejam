@@ -10,7 +10,6 @@ public class UpDownButton : MonoBehaviour
     public Image Inside;
     public AudioClip sound02;
     private AudioSource audioSE;
-    public ParticleSystem StarParticle;
     public void Start()
     {
         audioSE = gameObject.AddComponent<AudioSource>();
@@ -22,7 +21,7 @@ public class UpDownButton : MonoBehaviour
         Debug.Log("ƒJ[ƒh2‚Í" + NumberManager.Instance.nextCard);
 
         if (NumberManager.Instance.currentCard > NumberManager.Instance.nextCard)
-        {        
+        {
             Debug.Log("WIN");
             GameManager.Instance.ChangeGold(20);
         }
