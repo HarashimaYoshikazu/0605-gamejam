@@ -98,10 +98,14 @@ public class LifeCycle : MonoBehaviour
 
     [SerializeField]
     Text _text;
+
+    [SerializeField]
+    Text _timeText;
     void Timer()
     {
-
         _timer += Time.deltaTime;
+        int a = (int)_timer;
+        _timeText.text = a.ToString();
         //Debug.Log($"Œ»Ý‚ÌŽžŠÔ{_timer}");
         if (_timer > _timeUp)
         {

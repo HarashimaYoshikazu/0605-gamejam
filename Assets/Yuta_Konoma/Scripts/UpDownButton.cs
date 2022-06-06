@@ -39,10 +39,11 @@ public class UpDownButton : MonoBehaviour
             DOVirtual.DelayedCall(5f, () =>
             {
                 PlayerController.Instance.ActivePlayer();
+                Destroy(go);
                 SceneManager.UnloadScene("BaccaratScene");
                 Up.enabled = false;
                 Down.enabled = false;
-                Destroy(go);
+                
             });
         }
         else if (NumberManager.Instance.currentCard == NumberManager.Instance.nextCard)
@@ -70,8 +71,9 @@ public class UpDownButton : MonoBehaviour
             DOVirtual.DelayedCall(2f, () =>
             {
                 PlayerController.Instance.ActivePlayer();
-                SceneManager.UnloadScene("BaccaratScene");
                 Destroy(go);
+                SceneManager.UnloadScene("BaccaratScene");
+                
                 Up.enabled = false;
                 Down.enabled = false;
             });
@@ -96,8 +98,9 @@ public class UpDownButton : MonoBehaviour
             DOVirtual.DelayedCall(5f, () =>
             {
                 PlayerController.Instance.ActivePlayer();
-                SceneManager.UnloadScene("BaccaratScene");
                 Destroy(go);
+                SceneManager.UnloadScene("BaccaratScene");
+                
                 Up.enabled = false;
                 Down.enabled = false;
             });
@@ -127,8 +130,8 @@ public class UpDownButton : MonoBehaviour
             DOVirtual.DelayedCall(2f, () =>
             {
                 PlayerController.Instance.ActivePlayer();
-                SceneManager.UnloadScene("BaccaratScene");
                 Destroy(go);
+                SceneManager.UnloadScene("BaccaratScene");              
                 Up.enabled = false;
                 Down.enabled = false;
             });
