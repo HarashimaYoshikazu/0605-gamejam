@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/takahashi/Title.unity
+    guid: bf2c17f221de1c6449f6593c086fbad3
+  - enabled: 1
     path: Assets/takahashi/takahasi.unity
     guid: 291e8bbfc78525342b6172ddd57f5b37
   - enabled: 1
