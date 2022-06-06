@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/takahashi/test.unity
-    guid: c693b431795fbc940b70114045f621f5
-  - enabled: 1
     path: Assets/takahashi/takahasi.unity
     guid: 291e8bbfc78525342b6172ddd57f5b37
   - enabled: 1
-    path: Assets/takahashi/test2.unity
-    guid: 6eb1792d6842ae843afec79681dea636
+    path: Assets/Harashima/BlackJack.unity
+    guid: d4ea3ec9af82a024793c9041a40f3275
+  - enabled: 1
+    path: Assets/Yuta_Konoma/BaccaratScene.unity
+    guid: 0aff5cdf9992cf84c9c0a37cc2b1b915
   m_configObjects: {}

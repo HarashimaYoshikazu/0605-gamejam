@@ -2,14 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager
+public class GameManager:MonoBehaviour
 {
-    static private GameManager _instance = new GameManager();
+    static private GameManager _instance;
     static public GameManager Instance => _instance;
     private GameManager() { }
 
-    int _initGold = 10;
+    int _initGold = 50;
+    public int Gold => _gold;
     int _gold = 0;
+
+    private void Awake()
+    {
+        if (_instance ==null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject) ;
+        }
+        
+    }
+    private void Update()
+    {
+        Debug.Log(_instance);
+    }
+    private void OnDestroy()
+    {
+        if (_instance == this)
+        {
+            _instance = null;
+        }
+    }
 
     /// <summary>
     /// ‚¨‹à‚Ì’l‚ğ•Ï‰»‚·‚éŠÖ”
@@ -20,7 +45,7 @@ public class GameManager
         UIManager.Instance.SetGoldText(_gold,_gold+ value);
         _gold += value;
         
-        if(_gold<0)
+        if(_gold<=0)
         {
             LifeCycle.Instance.ChangeState();
         }

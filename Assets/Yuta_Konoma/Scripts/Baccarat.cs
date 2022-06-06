@@ -43,7 +43,17 @@ public class Baccarat : MonoBehaviour
     public void Participation()
     {
         Invoke(nameof(ChangeImage), 0.5f);
-        GameManager.Instance.ChangeGold(-10);
+        int a = GameManager.Instance.Gold - 10;
+        if (a <=0)
+        {
+            GameManager.Instance.ChangeGold(-(GameManager.Instance.Gold) + 1);
+            
+        }
+        else
+        {
+            GameManager.Instance.ChangeGold(-10);
+        }
+        
     }
     public void ChangeImage()
     {

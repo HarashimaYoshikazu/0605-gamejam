@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using GameState;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class LifeCycle : MonoBehaviour
 {
@@ -22,6 +24,10 @@ public class LifeCycle : MonoBehaviour
     float _timer = 0f;
     [SerializeField, Tooltip("制限時間")]
     float _timeUp = 60f;
+    [SerializeField]
+    AudioSource _audioSource;
+    [SerializeField]
+    AudioClip[] _audioClips;
 
     private void Awake()
     {
@@ -32,16 +38,21 @@ public class LifeCycle : MonoBehaviour
         //ステートの初期化
         StateProcessor.StateReactiveProperty.Value = StateStart;
         StateStart.EnterAction += StartSetUp;
+        StateStart.EnterAction += PlayerController.Instance.FalsePlayer;
         StateStart.EnterAction += GameManager.Instance.ResetGold;
         StateStart.ExitAction += StartExit;
 
         StateInGame.EnterAction += InGameSetUp;
+        StateInGame.EnterAction += StartMusic;
+        StateInGame.EnterAction += PlayerController.Instance.ActivePlayer;
         StateInGame.UpdateAction += Timer;
         StateInGame.ExitAction += InGameExit;
+        StateInGame.ExitAction += EndMusic;
 
         StateResult.EnterAction += ResultSetUp;
         StateResult.ExitAction += ResultExit;
-        
+        StateResult.ExitAction += OnRetry;
+
 
         //ステートの値が変更されたら実行処理を行うようにする
         StateProcessor.StateReactiveProperty
@@ -60,20 +71,50 @@ public class LifeCycle : MonoBehaviour
             .AddTo(this);
     }
 
+
+    public void StartMusic()
+    {
+        _audioSource.PlayOneShot(_audioClips[0]);
+    }
+
+    public void StartFiever()
+    {
+        _audioSource.PlayOneShot(_audioClips[1]);
+        DOVirtual.DelayedCall(5f, () =>
+        {
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(_audioClips[0]);
+        });
+        
+    }
+    public void EndMusic()
+    {
+        _audioSource.Stop();
+    }
     private void Update()
     {
         StateProcessor.Update();
     }
 
+    [SerializeField]
+    Text _text;
     void Timer()
     {
+
         _timer += Time.deltaTime;
-        Debug.Log($"現在の時間{_timer}");
+        //Debug.Log($"現在の時間{_timer}");
         if (_timer > _timeUp)
         {
+            _text.gameObject.SetActive(true);
+            _text.text = "クリア：" + GameManager.Instance.Gold + "円";
             _timer = 0f;
             ChangeState();
         }
+    }
+
+    public void OnRetry()
+    {
+        _text.gameObject.SetActive(false);
     }
 
     [SerializeField]
@@ -98,7 +139,11 @@ public class LifeCycle : MonoBehaviour
     void ResultSetUp()
     {
         Debug.Log("StateがResultに状態遷移しました。");
-        _resultPanel?.SetActive(true);
+        if (GameManager.Instance.Gold <= 0)
+        {
+            _resultPanel?.SetActive(true);
+        }
+
     }
 
     void StartExit()

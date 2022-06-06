@@ -6,6 +6,8 @@ TagManager:
   tags:
   - test
   - test2
+  - BlackJack
+  - Bakara
   layers:
   - Default
   - TransparentFX

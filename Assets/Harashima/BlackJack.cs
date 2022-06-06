@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class BlackJack : MonoBehaviour
 {
@@ -94,11 +95,27 @@ public class BlackJack : MonoBehaviour
 
         if (_dealerCount<_playerCount && _playerCount<22)
         {
-            _winObject.SetActive(true);
+            var go = Instantiate(_winObject);
+            GameManager.Instance.ChangeGold(100);
+            LifeCycle.Instance.StartFiever();
+            DOVirtual.DelayedCall(5f, () =>
+             {
+                 Destroy(go);
+                 PlayerController.Instance.ActivePlayer();
+                 SceneManager.UnloadScene("BlackJack");
+             });
         }
         else
         {
-            _loseObject.SetActive(true);
+            GameManager.Instance.ChangeGold(-50);
+            var go = Instantiate(_loseObject);
+            
+            DOVirtual.DelayedCall(5f, () =>
+            {
+                Destroy(go);
+                PlayerController.Instance.ActivePlayer();
+                SceneManager.UnloadScene("BlackJack");
+            });
         }
 
         foreach(var i in _buttons)

@@ -1085,8 +1085,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardPrefab: {fileID: 2138793286226913679, guid: e4c10f07530deb245b179eaf5568f57d, type: 3}
-  _winObject: {fileID: 1190564209}
-  _loseObject: {fileID: 430743384}
+  _winObject: {fileID: 7379371198110160631, guid: c813d9b557ced5746bf16ddeff550ff4, type: 3}
+  _loseObject: {fileID: 4638337802789210785, guid: 5f8d851b408be154a9097d255d522289, type: 3}
   _buttons:
   - {fileID: 629573289}
   - {fileID: 913969237}
